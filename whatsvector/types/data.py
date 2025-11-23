@@ -135,7 +135,7 @@ class WhatsappData:
             not_found_placeholders=not_found_placeholders,
         )
 
-    @property
+    @cached_property
     def clean_messages(self) -> list[WhatsappMessage]:
         """
         Get a list of messages excluding those with content in not_found_placeholders.
