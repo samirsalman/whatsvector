@@ -25,6 +25,5 @@ fallback_version = "0.1.0"
 relative_to = "pyproject.toml"
 
 [tool.setuptools]
-package-dir = {"" = "whatsvector"}
 include-package-data = true
 
