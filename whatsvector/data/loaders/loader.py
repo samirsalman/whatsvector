@@ -82,7 +82,7 @@ class InMemoryDataLoader(DataLoader):
             wa_files (list[str]): List of WhatsApp data file paths.
             raise_errors (bool): Whether to raise errors during loading.
         """
-        super().__init__(wa_files, raise_errors, *args, **kwargs)
+        super().__init__(wa_files, *args, raise_errors=raise_errors, **kwargs)
         self.data_storage: list[WhatsappData] = []
 
     async def _load(self, wa_data: WhatsappData) -> None:
