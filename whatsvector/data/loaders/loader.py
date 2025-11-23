@@ -124,7 +124,7 @@ class QdrantDataLoader(DataLoader):
             embedding_model (str): The embedding model to use.
             collection_name (str): The name of the Qdrant collection.
         """
-        super().__init__(wa_files, raise_errors, *args, **kwargs)
+        super().__init__(wa_files=wa_files, *args, raise_errors=raise_errors, **kwargs)
         try:
             from qdrant_client import AsyncQdrantClient
         except ImportError as e:
