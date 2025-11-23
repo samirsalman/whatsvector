@@ -1,5 +1,6 @@
 """Data loader classes."""
 
+import os
 from abc import ABC, abstractmethod
 
 from tqdm import tqdm
@@ -62,6 +63,9 @@ class DataLoader(ABC):
         for wa_file in iterator:
             try:
                 data = WhatsappData.from_txt_file(wa_file)
+                logging.info(
+                    f"Loading {len(data.clean_messages)} messages from {wa_file}."
+                )
                 await self._load(data)
             except InvalidRowError as e:
                 if self.raise_errors:
@@ -175,21 +179,25 @@ class QdrantDataLoader(DataLoader):
         metadata = [
             {
                 "sender": msg.sender,
-                "when": msg.message_date.strftime("%A, %d %B %Y"),
-                "content": msg.content,
+                "when": msg.message_date.isoformat(),
+                "content": msg.rich_content,
                 "document": msg.rich_content,
             }
             for msg in wa_data.clean_messages
         ]
+        processes = os.cpu_count() // 2
+        if processes < 1:
+            processes = 1
 
-        await self._client.upload_collection(
+        self._client.upload_collection(
             collection_name=self.collection_name,
             vectors=[
                 models.Document(text=msg.rich_content, model=self.embedding_model)
                 for msg in wa_data.clean_messages
             ],
             payload=metadata,
-            wait=True,
+            parallel=processes,
+            batch_size=128,
         )
         logging.info(
             f"Loaded {len(wa_data.clean_messages)} messages into collection {self.collection_name}."
