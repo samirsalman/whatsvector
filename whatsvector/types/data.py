@@ -42,7 +42,7 @@ class WhatsappMessage(BaseModel):
         Returns:
             datetime: The date of the message.
         """
-        date_str = getattr(self, "timestamp").split(",")[0].strip("[] ")
+        date_str = self.timestamp.split(",")[0].strip("[] ")
         return datetime.strptime(date_str, "%d/%m/%y")
 
     @property
