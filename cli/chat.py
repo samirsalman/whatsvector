@@ -3,13 +3,13 @@
 import asyncio
 
 import typer
-from agent.state import AgentState
 from langchain.chat_models import init_chat_model
 from langchain.messages import AIMessage, AIMessageChunk, HumanMessage
 from qdrant_client import AsyncQdrantClient
 
 from whatsvector.agent.agent import create_whatsvector_agent
 from whatsvector.agent.context import WhatsVectorContext
+from whatsvector.agent.state import AgentState
 from whatsvector.common.language import SupportedLanguages
 from whatsvector.config.config_file import Config, ConfigFile
 
@@ -31,7 +31,7 @@ async def invoke(agent, input_state: AgentState, context: WhatsVectorContext) ->
     return ai_message
 
 
-@app.command("chat")
+@app.command()
 def run(
     profile: str = typer.Argument(
         ...,

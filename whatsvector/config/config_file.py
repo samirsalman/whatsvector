@@ -3,8 +3,12 @@
 from pathlib import Path
 
 import yaml
-from data.loaders.loader import DEFAULT_COLLECTION_NAME, DEFAULT_EMBEDDING_MODEL
 from pydantic import BaseModel
+
+from whatsvector.data.loaders.loader import (
+    DEFAULT_COLLECTION_NAME,
+    DEFAULT_EMBEDDING_MODEL,
+)
 
 
 class Config(BaseModel):

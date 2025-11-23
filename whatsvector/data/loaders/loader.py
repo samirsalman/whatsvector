@@ -98,6 +98,15 @@ class InMemoryDataLoader(DataLoader):
         self.data_storage.append(wa_data)
 
 
+"""
+TODO: Improve qdrant loader for large datasets when no GPU is available.
+Right now, the loader is too slow for large datasets without a GPU 
+(It depends on the embedding model used).
+A possible solution is to merge messages into N messages per vector to reduce the number of vectors created.
+But this solution requires changes in the metadata management as well.
+"""
+
+
 class QdrantDataLoader(DataLoader):
     """Qdrant data loader implementation."""
 

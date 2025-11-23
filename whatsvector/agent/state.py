@@ -2,9 +2,10 @@
 
 from typing import Annotated, Optional, TypedDict
 
-from common.language import SupportedLanguages
 from langchain_core.messages import AnyMessage
 from langgraph.graph.message import add_messages
+
+from whatsvector.common.language import SupportedLanguages
 
 
 class AgentState(TypedDict):

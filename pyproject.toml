@@ -13,6 +13,9 @@ dependencies = [
     "typer==0.20.0"
 ]
 
+[project.scripts]
+whatsvector = "cli.__main__:main"
+
 
 [build-system]
 requires = ["setuptools>=42", "wheel"]
@@ -27,4 +30,9 @@ relative_to = "pyproject.toml"
 
 [tool.setuptools]
 include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["whatsvector*", "cli*"]
+exclude = ["data", "qdrant_data"]
 

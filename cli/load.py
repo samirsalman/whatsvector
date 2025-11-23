@@ -12,7 +12,7 @@ app = typer.Typer(
 )
 
 
-@app.command("load")
+@app.command()
 def run(
     profile: str = typer.Argument(
         ...,

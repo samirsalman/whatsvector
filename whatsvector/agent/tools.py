@@ -1,7 +1,8 @@
 from typing import Optional
 
-from agent.context import WhatsVectorContext
 from langchain.tools import ToolRuntime, tool
+
+from whatsvector.agent.context import WhatsVectorContext
 
 
 @tool
