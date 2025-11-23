@@ -55,7 +55,7 @@ class WhatsappMessage(BaseModel):
 
         # when must contains also the weekday name for better context in the vectorization
         date_str = self.message_date.strftime("%A, %d %B %Y")
-        return f"Sender: {self.sender}\nWhen: {date_str}\nMessage: {self.content}" ""
+        return f"Sender: {self.sender}\nWhen: {date_str}\nMessage: {self.content}"
 
     @classmethod
     def from_raw(cls, raw_message: str) -> "WhatsappMessage":
