@@ -1,10 +1,10 @@
 """Data loader classes."""
 
-import logging
 from abc import ABC, abstractmethod
 
 from tqdm import tqdm
 
+from whatsvector.common.log import app_logger as logging
 from whatsvector.exceptions.data import InvalidRowError
 from whatsvector.types.data import WhatsappData
 
