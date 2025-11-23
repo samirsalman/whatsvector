@@ -192,5 +192,5 @@ class QdrantDataLoader(DataLoader):
             wait=True,
         )
         logging.info(
-            f"Loaded {len(wa_data.messages)} messages into collection {self.collection_name}."
+            f"Loaded {len(wa_data.clean_messages)} messages into collection {self.collection_name}."
         )
