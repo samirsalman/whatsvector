@@ -1,0 +1,29 @@
+[project]
+name = "whatsvector"
+version = "0.1.0"
+description = "Vectorize your WhatsApp conversations and chat with them."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "langgraph==1.0.3",
+    "pydantic==2.12.4",
+    "tqdm"
+]
+
+[project.optional-dependencies]
+qdrant = ["qdrant-client==1.16.0"]
+
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta" 
+
+[tool.setuptools_scm]
+version_scheme = "post-release"
+local_scheme = "node-and-timestamp"
+write_to = "whatsvector/_version.py"
+fallback_version = "0.1.0"
+relative_to = "pyproject.toml"
+
+[tool.setuptools]
+include-package-data = true
+
