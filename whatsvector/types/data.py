@@ -117,21 +117,7 @@ class WhatsappData:
         Returns:
             WhatsappData: The created WhatsappData instance.
         """
-        not_found_placeholders = (
-            [
-                "immagine omessa",
-                "video omesso",
-                "audio omesso",
-                "documento omesso",
-            ]
-            if app_language == "it"
-            else [
-                "image omitted",
-                "video omitted",
-                "audio omitted",
-                "document omitted",
-            ]
-        )
+        not_found_placeholders = KNOWN_NOT_FOUND_PLACEHOLDERS[app_language].copy()
 
         messages = []
         with open(file_path, "r", encoding="utf-8") as file:
