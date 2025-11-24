@@ -373,11 +373,10 @@ whatsvector chat work-archive \
 ### High Priority
 
 - [ ] **Add comprehensive unit tests**
-  - Agent behavior tests
-  - Data loader tests
-  - Parser validation tests
-  - Tool execution tests
+  - Agent behavior and tool execution tests
+  - Data loader and parser validation tests
   - Configuration management tests
+  - Integration tests for CLI commands
 
 - [ ] **Improve Qdrant loader for large datasets without GPU** (See `whatsvector/data/loaders/loader.py:103-109`)
   - Current implementation is slow for large datasets without GPU acceleration
@@ -387,20 +386,43 @@ whatsvector chat work-archive \
 
 ### Medium Priority
 
-- [ ] Add support for WhatsApp media file metadata
-- [ ] Implement conversation summarization features
-- [ ] Add export functionality for search results
-- [ ] Create web UI for easier interaction
-- [ ] Add support for more embedding models
-- [ ] Implement incremental data loading (add new messages without reloading everything)
+- [ ] **Implement incremental data loading**
+  - Add new messages without reloading the entire dataset
+  - Detect and skip duplicate messages
+  - Optimize for append-only operations
+
+- [ ] **Add conversation summarization features**
+  - Generate summaries for time periods or topics
+  - Create conversation digests
+  - Extract key insights from chat history
+
+- [ ] **Improve WhatsApp parser**
+  - Support additional date/time formats
+  - Handle more edge cases in message parsing
+  - Better handling of system messages
+
+- [ ] **Add export functionality**
+  - Export search results to JSON/CSV
+  - Export conversation segments
+  - Generate reports from queries
 
 ### Low Priority
 
-- [ ] Add conversation analytics and statistics
-- [ ] Support for other chat formats (Telegram, Discord, etc.)
-- [ ] Add conversation export to different formats
-- [ ] Implement chat backup and restore functionality
-- [ ] Add multi-profile comparison features
+- [ ] **Create web UI for easier interaction**
+  - Interactive chat interface
+  - Visual analytics dashboard
+  - Profile management UI
+
+- [ ] **Add conversation analytics**
+  - Message frequency analysis
+  - Sender statistics
+  - Sentiment analysis over time
+  - Word clouds and topic extraction
+
+- [ ] **Support for other chat platforms**
+  - Telegram export format
+  - Discord export format
+  - Generic JSON/CSV import
 
 ---
 
